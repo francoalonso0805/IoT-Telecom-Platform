@@ -1,6 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Monitoreo IoT - Telecomunicaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 <body>
-<h1>Placeholder - se reemplaza en el Dia 4</h1>
+
+    <header class="encabezado">
+        <h1>Plataforma de Monitoreo IoT - Nodos de Telecomunicaciones</h1>
+        <p class="ultima-actualizacion">Ultima actualizacion: <span id="hora-actualizacion">--:--:--</span></p>
+    </header>
+
+    <main class="contenedor">
+
+        <!-- Seccion de tarjetas: una por cada Nodo IoT -->
+        <section class="tarjetas" id="contenedor-tarjetas">
+
+            <div class="tarjeta" id="tarjeta-1" data-id="1">
+                <div class="tarjeta-header">
+                    <span class="tarjeta-nombre">Nodo 1</span>
+                    <span class="estado-punto activo" id="punto-1"></span>
+                </div>
+                <p>Temperatura: <span id="temp-1">--</span> &deg;C</p>
+                <p>CPU: <span id="cpu-1">--</span> %</p>
+                <p>Usuarios: <span id="usuarios-1">--</span></p>
+                <button class="btn-falla" data-id="1">Simular Falla</button>
+            </div>
+
+            <div class="tarjeta" id="tarjeta-2" data-id="2">
+                <div class="tarjeta-header">
+                    <span class="tarjeta-nombre">Nodo 2</span>
+                    <span class="estado-punto activo" id="punto-2"></span>
+                </div>
+                <p>Temperatura: <span id="temp-2">--</span> &deg;C</p>
+                <p>CPU: <span id="cpu-2">--</span> %</p>
+                <p>Usuarios: <span id="usuarios-2">--</span></p>
+                <button class="btn-falla" data-id="2">Simular Falla</button>
+            </div>
+
+            <div class="tarjeta" id="tarjeta-3" data-id="3">
+                <div class="tarjeta-header">
+                    <span class="tarjeta-nombre">Nodo 3</span>
+                    <span class="estado-punto activo" id="punto-3"></span>
+                </div>
+                <p>Temperatura: <span id="temp-3">--</span> &deg;C</p>
+                <p>CPU: <span id="cpu-3">--</span> %</p>
+                <p>Usuarios: <span id="usuarios-3">--</span></p>
+                <button class="btn-falla" data-id="3">Simular Falla</button>
+            </div>
+
+            <div class="tarjeta" id="tarjeta-4" data-id="4">
+                <div class="tarjeta-header">
+                    <span class="tarjeta-nombre">Nodo 4</span>
+                    <span class="estado-punto activo" id="punto-4"></span>
+                </div>
+                <p>Temperatura: <span id="temp-4">--</span> &deg;C</p>
+                <p>CPU: <span id="cpu-4">--</span> %</p>
+                <p>Usuarios: <span id="usuarios-4">--</span></p>
+                <button class="btn-falla" data-id="4">Simular Falla</button>
+            </div>
+
+            <div class="tarjeta" id="tarjeta-5" data-id="5">
+                <div class="tarjeta-header">
+                    <span class="tarjeta-nombre">Nodo 5</span>
+                    <span class="estado-punto activo" id="punto-5"></span>
+                </div>
+                <p>Temperatura: <span id="temp-5">--</span> &deg;C</p>
+                <p>CPU: <span id="cpu-5">--</span> %</p>
+                <p>Usuarios: <span id="usuarios-5">--</span></p>
+                <button class="btn-falla" data-id="5">Simular Falla</button>
+            </div>
+
+        </section>
+
+        <!-- Panel de alertas: solo nodos en Advertencia o Falla -->
+        <section class="panel-alertas">
+            <h2>Alertas</h2>
+            <ul id="lista-alertas">
+                <li class="sin-alertas">Sin alertas por el momento.</li>
+            </ul>
+        </section>
+
+        <!-- Grafica de tendencia del nodo seleccionado -->
+        <section class="panel-grafica">
+            <h2>Tendencia (<span id="nodo-seleccionado-nombre">Nodo 1</span>)</h2>
+            <canvas id="grafica-nodo" height="90"></canvas>
+        </section>
+
+        <!-- Tabla resumen con todos los nodos -->
+        <section class="panel-tabla">
+            <h2>Tabla de Nodos</h2>
+            <table id="tabla-nodos">
+                <thead>
+                    <tr>
+                        <th>Nodo</th>
+                        <th>Estado</th>
+                        <th>Temperatura</th>
+                        <th>Latencia</th>
+                        <th>CPU</th>
+                        <th>Memoria</th>
+                        <th>Usuarios</th>
+                        <th>Ultima actualizacion</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-nodos-cuerpo">
+                    <!-- Las filas se llenan dinamicamente desde dashboard.js (Dia 5) -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
 </html>

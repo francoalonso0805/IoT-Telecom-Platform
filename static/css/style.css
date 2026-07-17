@@ -1,0 +1,196 @@
+/* style.css - Dashboard de Monitoreo IoT */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f2f4f7;
+    color: #1f2933;
+}
+
+/* --- Encabezado --- */
+.encabezado {
+    background-color: #1a3c6e;
+    color: #ffffff;
+    padding: 20px 30px;
+}
+
+.encabezado h1 {
+    font-size: 1.5rem;
+}
+
+.ultima-actualizacion {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #cfd8e3;
+}
+
+/* --- Contenedor general --- */
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    color: #1a3c6e;
+}
+
+/* --- Tarjetas de nodos --- */
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tarjeta-nombre {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.tarjeta p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+}
+
+/* --- Punto de estado (color segun estado del nodo) --- */
+.estado-punto {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.estado-punto.activo {
+    background-color: #2e9e44;
+}
+
+.estado-punto.advertencia {
+    background-color: #e6a817;
+}
+
+.estado-punto.falla {
+    background-color: #d0342c;
+}
+
+/* --- Boton Simular Falla --- */
+.btn-falla {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1a3c6e;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-falla:hover {
+    background-color: #12294d;
+}
+
+/* --- Panel de alertas --- */
+.panel-alertas {
+    background-color: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+#lista-alertas {
+    list-style: none;
+}
+
+#lista-alertas li {
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+#lista-alertas li.sin-alertas {
+    color: #6b7785;
+    font-style: italic;
+}
+
+#lista-alertas li.alerta-advertencia {
+    background-color: #fff4d9;
+    color: #7a5b06;
+}
+
+#lista-alertas li.alerta-falla {
+    background-color: #fbdddb;
+    color: #7a1712;
+}
+
+/* --- Panel de grafica --- */
+.panel-grafica {
+    background-color: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* --- Tabla de nodos --- */
+.panel-tabla {
+    background-color: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+}
+
+#tabla-nodos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+#tabla-nodos th,
+#tabla-nodos td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eceff2;
+    white-space: nowrap;
+}
+
+#tabla-nodos th {
+    background-color: #f7f9fb;
+    color: #1a3c6e;
+}
+
+/* --- Responsive: pantallas pequenas (celular) --- */
+@media (max-width: 480px) {
+    .encabezado h1 {
+        font-size: 1.1rem;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
